@@ -35,10 +35,10 @@
           }
       </style>
 </head>
-<body>
+<body class="lexend">
   <header class="sticky top-0 bg-white bg-opacity-90 z-50">
     <nav class="px-6 lg:px-32 py-4 bg-orange-50 items-center flex justify-between">
-      <button class="lexend btn bg-btn-bg">blog</button>
+      <button class="lexend btn bg-btn-bg" onclick="window.location.href='blog.html';">blog</button>
       <div class="flex gap-4 justify-center items-center">
         <img src="./assets/logo.png" alt="">
         <h2 class="text-base lg:text-lg font-bold">Donate Bangladesh</h2>
@@ -72,7 +72,7 @@
         <!-- input amount -->
         <input class="border-2 rounded-lg h-10 p-2" name="amount" id="inputDonationNoakhali" placeholder="Write Donation Amount" required>
         <!-- donate button -->
-        <button id="donateBtnNoakhali" class="btn py-4 bg-btn-bg w-full">Donate Now</button>
+        <button id="donateBtnNoakhali" class="btn py-4 bg-btn-bg w-full ">Donate Now</button>
       </div>  
     </div>
 
@@ -103,7 +103,7 @@
         <div class="flex gap-2 p-2 bg-gray-100 justify-center items-center w-32 rounded-xl">
           <img src="./assets/coin.png" alt="">
           <!-- Total balance -->
-          <p><span id="totalBalanceQm">30000</span> BDT</p>
+          <p><span id="totalBalanceQm">3000</span> BDT</p>
         </div>
         <h3 class="text-md font-bold">Aid for Injured in the Quota Movement</h3>
         <p> The recent Quota movement has resulted in numerous injuries and significant hardship for many individuals. Your support is crucial in providing medical assistance, rehabilitation, and necessary supplies to those affected. By contributing, you help ensure that injured individuals receive the care and support they need during this challenging time. </p>
@@ -115,14 +115,28 @@
     </div>
     </section>
 
+        <!-- Modal -->
+
+      <input type="checkbox" id="my-modal" class="modal-toggle" />
+        <div class="modal">
+            <div class="modal-box flex flex-col gap-2 justify-center items-center">
+              <h3 class="text-2xl font-bold">Congrates!</h3>
+              <img src="./assets/coin.png" alt="">
+              <p class="py-4">You Have Donated for Humankind</p>
+              <h3 class="text-xl font-bold">Successfully</h3>
+                <div class="modal-action">
+                    <label for="my-modal" class="btn">Close Confirmation</label>
+                </div>
+            </div>
+        </div>
+
     <div id="historySection" class="hidden flex flex-col gap-6">
-      <!-- <div id="donation-cart" class="history-cart p-6 flex flex-col gap-6 border-2 rounded-2xl">
-        <h3 class="text-lg font-bold">${} Taka is Donated for ${}   </h3>
-        <p id="date">Date: ${}</p>
-      </div> -->
+
     </div>
   </Main>
   <Footer>
+    <div class="px-6 lg:px-32 py-4 bg-orange-50 items-center flex justify-between h-16 mt-2">
+    </div>
 
   </Footer>
 

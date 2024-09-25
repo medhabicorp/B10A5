@@ -12,11 +12,14 @@ document.getElementById('donateBtnNoakhali').addEventListener('click', function(
   const remainingAmount = getRemainingBalanceById('remainingBalance');
 
   const currentTime = new Date().toString();
+
+  const modalCheckbox = document.getElementById("my-modal");
   
   // validation for number input
   if (donateMoneyAmount <= 0 || isNaN(donateMoneyAmount)) {
     alert("Please Enter a Valid Amount to Donate.");
     document.getElementById('inputDonationNoakhali').value = "";
+    modalCheckbox.checked = false;
     return;
   }
 
@@ -24,6 +27,7 @@ document.getElementById('donateBtnNoakhali').addEventListener('click', function(
   else if(remainingAmount <= 0 || remainingAmount < donateMoneyAmount){
     alert ("You don't have enough money to donate.")
     document.getElementById('inputDonationNoakhali').value = "";
+    modalCheckbox.checked = false;
     return;
   }
 
@@ -43,74 +47,85 @@ document.getElementById('donateBtnNoakhali').addEventListener('click', function(
 
      // add to history
      const noaDiv = document.createElement('div');
-    noaDiv.classList.add('bg-btn-bg');
+    noaDiv.classList.add('p-6', 'flex', 'flex-col', 'gap-6', 'border-2', 'border-[#B4F461]', 'rounded-2xl');
      noaDiv.innerHTML =`
-    <h3 class="text-lg font-bold">${donateMoneyAmount} Taka is Donated for Noakhali in Bangladesh </h3>
+    <h3 class="text-lg font-bold">${donateMoneyAmount} Taka is Donated for flood in Noakhali, Bangladesh </h3>
     <p>Date: ${currentTime} </p>`
           
     // should be a common function
     document.getElementById('historySection').prepend(noaDiv);
+
+    // modal
+    modalCheckbox.checked = true;
   }
   
 })
 
 
-// // Function for Feni
+// Function for Feni
 
-// document.getElementById('donateBtnFeni').addEventListener('click', function(event){
-//   event.preventDefault();
+document.getElementById('donateBtnFeni').addEventListener('click', function(event){
+  event.preventDefault();
   
-//   // donate amount
-//   const donateMoneyAmount = getInputFieldValueById('inputDonationFeni');
+  // donate amount
+  const donateMoneyAmount = getInputFieldValueById('inputDonationFeni');
 
-//   // default balance amount
-//   const balanceAmount = getTotalBalanceById('totalBalanceFeni')
+  // default balance amount
+  const balanceAmount = getTotalBalanceById('totalBalanceFeni')
 
-//   // remaining amount
-//   const remainingAmount = getRemainingBalanceById('remainingBalance');
+  // remaining amount
+  const remainingAmount = getRemainingBalanceById('remainingBalance');
+
+  const currentTime = new Date().toString();
+
+  const modalCheckbox = document.getElementById("my-modal");
   
-//   // validation for number input
-//   if (donateMoneyAmount <= 0 || isNaN(donateMoneyAmount)) {
-//     alert("Please Enter a Valid Amount to Donate.");
-//     document.getElementById('inputDonationFeni').value = "";
-//     return;
-//   }
+  // validation for number input
+  if (donateMoneyAmount <= 0 || isNaN(donateMoneyAmount)) {
+    alert("Please Enter a Valid Amount to Donate.");
+    document.getElementById('inputDonationFeni').value = "";
+    modalCheckbox.checked = false;
+    return;
+  }
 
-//   // validation for if input is less than remaining amount
-//   else if(remainingAmount <= 0 || remainingAmount < donateMoneyAmount){
-//     alert ("You don't have enough money to donate.")
-//     document.getElementById('inputDonationFeni').value = "";
-//     return;
-//   }
+  // validation for if input is less than remaining amount
+  else if(remainingAmount <= 0 || remainingAmount < donateMoneyAmount){
+    alert ("You don't have enough money to donate.")
+    document.getElementById('inputDonationFeni').value = "";
+    modalCheckbox.checked = false;
+    return;
+  }
 
-//   else{
+  else{
     
-//     // total balance updated
-//   const balanceUpdated = balanceAmount+ donateMoneyAmount;
-//   document.getElementById('totalBalanceFeni').innerText = balanceUpdated;
+    // total balance updated
+  const balanceUpdated = balanceAmount+ donateMoneyAmount;
+  document.getElementById('totalBalanceFeni').innerText = balanceUpdated;
 
 
-//     // Remaining Balance Updated
-//     const remainingBalanceUpdated = remainingAmount-donateMoneyAmount;
+    // Remaining Balance Updated
+    const remainingBalanceUpdated = remainingAmount-donateMoneyAmount;
 
-//     document.getElementById('remainingBalance').innerText = remainingBalanceUpdated;
+    document.getElementById('remainingBalance').innerText = remainingBalanceUpdated;
 
-//     // left the input field blank
-//     document.getElementById('inputDonationFeni').value = "";
+    // left the input field blank
+    document.getElementById('inputDonationFeni').value = "";
 
 
-//          // add to history
-//          const feniDiv = document.createElement('div');
-//         feniDiv.classList.add('bg-gray-100');
-//         feniDiv.innerHTML =`
-//          <h3 class="text-lg font-bold">${donateMoneyAmount} Taka is Donated for Noakhali in Bangladesh </h3>
-//          <p>Date: ${currentTime} </p>`
+    // add to history
+    const feniDiv = document.createElement('div');
+    feniDiv.classList.add('p-6', 'flex', 'flex-col', 'gap-6', 'border-2', 'border-[#B4F461]', 'rounded-2xl');
+    feniDiv.innerHTML =`
+    <h3 class="text-lg font-bold">${donateMoneyAmount} Taka is Donated for Flood Relief in Feni,Bangladesh. </h3>
+    <p>Date: ${currentTime} </p>`
                
-//          // should be a common function
-//          document.getElementById('historySection').prepend(feniDiv);
-//   }
+    // should be a common function
+    document.getElementById('historySection').prepend(feniDiv);
+
+    modalCheckbox.checked = true;
+  }
   
-// })
+})
 
 
 // Function for Quota Movement
@@ -126,11 +141,16 @@ document.getElementById('donateBtnQm').addEventListener('click', function(event)
 
   // remaining amount
   const remainingAmount = getRemainingBalanceById('remainingBalance');
+
+  const currentTime = new Date().toString();
+
+  const modalCheckbox = document.getElementById("my-modal");
   
   // validation for number input
   if (donateMoneyAmount <= 0 || isNaN(donateMoneyAmount)) {
     alert("Please Enter a Valid Amount to Donate.");
     document.getElementById('inputDonationQm').value = "";
+    modalCheckbox.checked = false;
     return;
   }
 
@@ -138,6 +158,7 @@ document.getElementById('donateBtnQm').addEventListener('click', function(event)
   else if(remainingAmount <= 0 || remainingAmount < donateMoneyAmount){
     alert ("You don't have enough money to donate.")
     document.getElementById('inputDonationQm').value = "";
+    modalCheckbox.checked = false;
     return;
   }
 
@@ -157,14 +178,17 @@ document.getElementById('donateBtnQm').addEventListener('click', function(event)
 
 
              // add to history
-             const qmDiv = document.createElement('div');
-             qmDiv.classList.add('bg-gray-100');
-             qmDiv.innerHTML =`
-              <h3 class="text-lg font-bold">${donateMoneyAmount} Taka is Donated for Noakhali in Bangladesh </h3>
-              <p>Date: ${currentTime} </p>`
+    const qmDiv = document.createElement('div');
+    qmDiv.classList.add('p-6', 'flex', 'flex-col', 'gap-6', 'border-2', 'border-[#B4F461]', 'rounded-2xl');
+    qmDiv.innerHTML =`
+    <h3 class="text-lg font-bold">${donateMoneyAmount} Taka is Donated for Injured in the Quota Movement.</h3>
+    <p>Date: ${currentTime} </p>`
                     
-              // should be a common function
-              document.getElementById('historySection').prepend(qmDiv);
+    // should be a common function
+    document.getElementById('historySection').prepend(qmDiv);
+
+    modalCheckbox.checked = true;
+  
   }
   
 })
