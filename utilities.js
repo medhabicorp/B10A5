@@ -34,10 +34,3 @@ function showBgColorById(id){
 
   document.getElementById(id).classList.add('bg-btn-bg');
 }
-
-// modal
-
-function showModal(){
-  const showModal=document.getElementById('my_modal_1');
-  return showModal;
-}
